@@ -2,11 +2,22 @@ pipeline {
     agent any
 
     environment {
-        JAVA_HOME = '/opt/amazon-corretto-21.0.7.6.1-linux-x64'
+        JAVA_HOME = "${WORKSPACE}/java21"
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
 
     stages {
+        stage('Download Java 21') {
+            steps {
+                sh '''
+                    echo "Downloading Amazon Corretto 21..."
+                    curl -L -o corretto.tar.gz https://corretto.aws/downloads/latest/amazon-corretto-21-x64-linux-jdk.tar.gz
+                    mkdir -p java21
+                    tar -xzf corretto.tar.gz -C java21 --strip-components=1
+                    rm corretto.tar.gz
+                '''
+            }
+        }
 
         stage('Test') {
             steps {
