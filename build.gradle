@@ -24,6 +24,6 @@ war {
 		include "node_modules/**"
 	}
     archiveFileName = "reactApp"
-    destinationDir(file("dist"))
+    destinationDirectory = file("$buildDir/dist")
 }
 
