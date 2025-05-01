@@ -7,6 +7,17 @@ pipeline {
     }
 
     stages {
+
+        stage('Test') {
+            steps {
+                sh '''
+                    echo "Java version:"
+                    java -version
+                    ./gradlew build --no-daemon
+                '''
+            }
+      } 
+               
         stage('Build') {
             steps {
                 echo 'Running build automation'
