@@ -1,5 +1,11 @@
 pipeline {
     agent any
+
+    environment {
+        JAVA_HOME = '/usr/lib/jvm/java-17-amazon-corretto'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+    }
+
     stages {
         stage('Build') {
             steps {
