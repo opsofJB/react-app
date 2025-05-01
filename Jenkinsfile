@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        JAVA_HOME = '/usr/lib/jvm/java-17-amazon-corretto'
+        JAVA_HOME = '/opt/corretto/amazon-corretto-24.0.1.9.1-linux-x64'
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
 
