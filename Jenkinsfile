@@ -23,7 +23,7 @@ pipeline {
                 echo 'Running build automation'
                 sh 'chmod +x gradlew'
                 sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'dist/reactApp'
+                archiveArtifacts artifacts: 'build/dist/reactApp'
             }
         }
         stage('Build Docker Image') {
